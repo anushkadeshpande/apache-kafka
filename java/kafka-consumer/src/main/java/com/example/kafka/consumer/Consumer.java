@@ -11,7 +11,7 @@ public class Consumer {
 	public static void main(String args[]){
 		Properties kafkaProps = new Properties();
 		kafkaProps.put("bootstrap.servers", "localhost:9093,localhost:9094");
-		kafkaProps.put("group.id","invalid");
+		kafkaProps.put("group.id","group-1");
 		kafkaProps.put("key.deserializer","org.apache.kafka.common.serialization.StringDeserializer");
 		kafkaProps.put("value.deserializer","org.apache.kafka.common.serialization.StringDeserializer");		
 		
