@@ -33,6 +33,8 @@ But in **PubSub**, data is produced and it is broadcasted among the consumers.
 
 Kafka can do both with the help of **Consumer Groups**.
 
+### Consumer Groups:
+
 ![image](https://github.com/anushkadeshpande/apache-kafka/assets/53345232/4f677ebb-9500-4e06-956e-a1f1037d6496)
 
 In case of consumer group *group-1*,
