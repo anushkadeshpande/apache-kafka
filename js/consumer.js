@@ -1,6 +1,10 @@
 const { Kafka } = require("kafkajs")
 
+// get consumer group as command line arg
+const consumerGroupName = process.argv[2]
+
 run()
+
 async function run() {
   try{
     const kafka = new Kafka({
@@ -9,7 +13,7 @@ async function run() {
     })
 
     // create a new consumer in group test
-    const consumer = kafka.consumer({"groupId": "test"})
+    const consumer = kafka.consumer({"groupId": consumerGroupName})
     console.log("Connecting ....")
     await consumer.connect()
     console.log("Connected")
