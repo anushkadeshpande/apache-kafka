@@ -1,4 +1,4 @@
-package com.example.training.kafka_consumer;
+package com.example.kafka.consumer;
 
 import java.util.Collections;
 import java.util.Properties;

@@ -1,4 +1,4 @@
-package com.example.training.kafka_producer;
+package com.example.kafka.producer;
 
 import java.util.Properties;
 
