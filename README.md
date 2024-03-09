@@ -1,5 +1,16 @@
 # Kafka :
 
+### Why Kafka:
+- Able to connect a large number of clients (Producers and Consumers)
+- Durable
+  - Disk based retention
+  - Data is replicated across brokers
+- Scalable
+  - Expansions can be performed while the cluster is online
+- High Performance
+  - Producers, consumers, and brokers can all be scaled to handle very large message streams
+  - Sub-second message latency to consumers
+
 ### Kafka Broker:
 Kafka Broker is essentially a Kafka Server.
 Producers publish content to a Broker and Consumers consume from the broker.
