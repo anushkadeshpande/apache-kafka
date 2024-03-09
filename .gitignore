@@ -1,3 +1,4 @@
 js/node_modules
 java/kafka-consumer/target
 java/kafka-producer/target
+java/labs/*/cluster-data/
