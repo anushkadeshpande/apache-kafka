@@ -25,3 +25,6 @@ kafka-console-consumer.sh --bootstrap-server :9092 --topic stream-output --from-
 > mvn clean package
 > 
 ```
+
+
+![image](https://github.com/anushkadeshpande/apache-kafka/assets/53345232/214befeb-2836-4dee-b627-90739d22b30c)
