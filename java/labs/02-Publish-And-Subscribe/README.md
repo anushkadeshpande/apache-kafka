@@ -1,15 +1,22 @@
 ## Steps to run:
-1. Build producer code and consumer codes
+1. Create topics `global-events` and `user-events`
+```
+kafka-topics.sh --bootstrap-server :9092 --create --topic global-events
+
+kafka-topics.sh --bootstrap-server :9092 --create --topic user-events
+```
+
+2. Build producer code and consumer codes
 ```
 mvn clean package
 ```
 
-2. Run producer code:
+3. Run producer code:
 ```
 java -jar .\target\pubsub-producer-1.0.0-SNAPSHOT.jar
 ```
 
-3. Run consumer code:
+4. Run consumer code:
 ```
  java -jar .\target\pubsub-consumer-1.0.0-SNAPSHOT.jar
 ```
