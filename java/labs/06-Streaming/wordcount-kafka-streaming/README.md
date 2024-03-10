@@ -23,7 +23,7 @@ kafka-console-consumer.sh --bootstrap-server :9092 --topic stream-output --from-
 4. Build and package the code and run it
 ```
 > mvn clean package
-> 
+> java -jar .\target\wordcount-kafka-solution-1.0.0-SNAPSHOT.jar
 ```
 
 
