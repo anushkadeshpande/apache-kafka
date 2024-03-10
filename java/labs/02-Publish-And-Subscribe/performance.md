@@ -32,7 +32,7 @@ On Windows, things gets a bit more tricky.
 If you can run in PowerShell, , you can run your command using `Measure-Command`. E.g.:
 
 ```powershell
-PS> Meassure-Command { java -jar target/MY.jar}
+PS> Measure-Command { java -jar target/MY.jar}
 ```
 
 If not, here is a a batch file that you can use: 

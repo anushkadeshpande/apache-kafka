@@ -55,7 +55,8 @@ public class Producer {
           producer.send(global); // value
           System.out.println("Producting a global message. Message #" + i);
 
-          producer.flush();
+          // force to send buffered messages
+          // producer.flush();
           System.out.println("flushed on " + i);
         }
       }
