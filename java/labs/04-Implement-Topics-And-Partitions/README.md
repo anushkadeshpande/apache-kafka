@@ -20,3 +20,8 @@ kafka-console-consumer.sh --bootstrap-server :9092 --topic device-event
     It'll collect and transform the data produced by device-simulator
 
 This is what we can observe:
+
+![image](https://github.com/anushkadeshpande/apache-kafka/assets/53345232/99a2612c-be39-4f21-81c8-f3c6103597a3)
+> 1. Console consumer
+> 2. device-monitor
+> 3. device-simulator
