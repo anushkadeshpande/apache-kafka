@@ -87,3 +87,36 @@ docker run --name zookeeper  -p 2181:2181 -d zookeeper
 ```
 docker run -p 9092:9092 --name kafka -e KAFKA_ZOOKEEPER_CONNECT=<IP>:2181 -e KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://<IP>:9092 -e KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR=1 -d confluentinc/cp-kafka
 ```
+<hr>
+
+### Behind the scenes:
+
+#### Producer:
+The Kafka producer utilizes a built-in buffer to temporarily store messages before sending them to Kafka. This buffer optimizes message delivery for efficiency.
+
+The buffer size can be configured based on various factors:
+- Number of messages: Define a maximum number of messages to hold in the buffer.
+- Total message size: Set a limit on the total memory allocated for messages in the buffer.
+- Time threshold: Specify a waiting time to send the buffer even if it's not full.
+- Combination: A combination of these options can be used for granular control.
+
+Before sending, each message is serialized into bytes.
+
+It get partitioned by taking the key and it decides which buffer to put it in. It's now held in your in the memory of your process.
+
+##### Why buffer the messages?
+- Enhanced Throughput: Batching messages in the buffer allows for sending them in fewer network calls, improving overall throughput.
+- Potential Compression: If network bandwidth is a concern, messages within the buffer can be compressed to reduce their size before sending.
+
+> So if I buffer up 1000 messages before I send it, then Kafka can use a single connection to write all those messages as one batch.
+
+The linger.ms setting allows you to specify the maximum wait time before sending the buffer, even if it's not full. This provides a balance between maximizing batch size and minimizing latency.
+
+#### Consumer:
+
+Consumer does not get messages from a single partition through out its lifetime.
+
+What happens if one of the consumers from a consumer group fails:
+1. Rebalance is triggered (the consumer group cooridinator detects failure and triggers a rebalance)
+2. Partition Reassignment (the coordinator reassigns partitions among the consumers)
+3. Polling (every consumer keeps polling, but do not actually recieve any message during the reassingment, and once that is done, they start receiving the messages again)
